@@ -3,19 +3,19 @@
 Submission Creator makes usage from the power of [contao-submissions](https://github.com/heimrichhannot/contao-subnmissions) and [contao-frontendedit](https://github.com/heimrichhannot/contao-frontendedit).
 It provides a reader module, that can create custom frontend forms with possible relations to other contao entities like news.
 
-![alt Module](docs/module.png)
+![alt Module](docs/module.jpg)
 
 *Module configuration example*
 
-![alt Archive](docs/submission_archive.png)
+![alt Archive](docs/submission_archive.jpg)
 
 *Submission archive configuration example*
 
-![alt Submission](docs/submission.png)
+![alt Submission](docs/submission.jpg)
 
 *Submission view example (every field of this form can be changed, of course)*
 
-![alt News](docs/news_relation.png)
+![alt News](docs/news_relation.jpg)
 
 *News relation configuration example*
 
