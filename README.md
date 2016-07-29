@@ -7,17 +7,25 @@ It provides a reader module, that can create custom frontend forms with possible
 
 *Module configuration example*
 
+---
+
 ![alt Archive](docs/submission_archive.jpg)
 
 *Submission archive configuration example*
+
+---
 
 ![alt Submission](docs/submission.jpg)
 
 *Submission view example (every field of this form can be changed, of course)*
 
+---
+
 ![alt News](docs/news_relation.jpg)
 
 *News relation configuration example*
+
+---
 
 
 ## Features
