@@ -1,0 +1,34 @@
+{
+    "name": "heimrichhannot/contao-submissions_creator",
+    "description":"A module for creating contao-submissions with contao-frontendedit and contao-submission.",
+    "keywords":["contao", "submissions", "form", "module", "contact"],
+    "type": "contao-module",
+    "homepage":"https://github.com/heimrichhannot/contao-submissions_creator",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"Heimrich & Hannot",
+            "email":"digitales@heimrich-hannot.de",
+            "homepage":"http://www.heimrich-hannot.de",
+            "role":"Developer"
+        }
+    ],
+    "support":{
+        "issues":"https://github.com/heimrichhannot/contao-submissions_creator/issues"
+    },
+    "require": {
+        "contao/core": ">=3.2,<4-dev",
+		"heimrichhannot/contao-submissions": "~1.0",
+		"heimrichhannot/contao-frontendedit": "~3.0"
+    },
+    "autoload": {
+        "classmap": [""]
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "": "system/modules/submissions_creator"
+            }
+        }
+    }
+}
