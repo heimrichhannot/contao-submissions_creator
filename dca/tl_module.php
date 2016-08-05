@@ -21,9 +21,9 @@ $arrDca['config']['onload_callback'][] = array('HeimrichHannot\Submissions\Creat
 $arrDca['palettes']['__selector__'][] = 'addSubmissionRelation';
 $arrDca['palettes'][HeimrichHannot\Submissions\Creator\SubmissionCreator::MODULE_SUBMISSION_READER] =
 	'{title_legend},name,headline,type;' .
-	'{entity_legend},formHybridPalette,formHybridEditable,formHybridAddEditableRequired,formHybridAddDefaultValues,defaultArchive;'.
+	'{entity_legend},formHybridPalette,formHybridEditable,formHybridAddEditableRequired,formHybridAddPermanentFields,formHybridAddDefaultValues,defaultArchive;'.
 	'{relation_legend},addSubmissionRelation;'.
-	'{action_legend},addUpdateConditions;' .
+	'{action_legend},addUpdateConditions,allowIdAsGetParameter;' .
 	'{redirect_legend},formHybridResetAfterSubmission,formHybridAddFieldDependentRedirect,jumpTo,formHybridJumpToPreserveParams;' .
 	'{misc_legend},formHybridAsync,formHybridSuccessMessage,formHybridAddDefaultValues,formHybridAddSubmitValues,setPageTitle,addClientsideValidation;'.
 	'{template_legend},formHybridTemplate,itemTemplate,customTpl;' .

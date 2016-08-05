@@ -14,3 +14,4 @@ $arrLang = &$GLOBALS['TL_LANG']['tl_submission'];
  * Fields
  */
 $arrLang['news'] = array('News', 'Select a news from a relation for submission.');
+$arrLang['news'] = array('Event', 'Select an event from a relation for submission.');

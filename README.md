@@ -33,7 +33,7 @@ It provides a reader module, that can create custom frontend forms with possible
 * submission form creation
 * custom field, mandatory fields, custom default values
 * store submissions in custom submission archives
-* connect submissions with other contao entities like news
+* connect submissions with other contao entities (builtin: news & events)
 * async submission
 * redirect after submission
 
@@ -54,6 +54,7 @@ setDefaultFromRequest | true | Set the submissionField from $_GET request parame
 request_parameter | 'rel' | Provide a custom request parameter that will be taken for setting the default relation entity from request or leave empty, than the submissionField value will taken as Request parameter ($_GET).
 insertTagLink | '{{news_submission_link::PAGE_ID::MODULE_ID::ENTITY_ID}}' | The inserttag that will be available to link to the submission from outside. PAGE_ID, MODULE_ID, ENTITY_ID must be definied as String like provided in the Example.
 useAutoItem | true | Set the request parameter as auto_item and generate a readable alias and append to the submission page url.
+entity_tokens | array('submission_form' => array('recipients' => array('news_*'),'email_subject' => array('news_*'),'email_text' => array('news_*'), | Add your custom submission notification entity tokens. 
 
 ### Callbacks
 
@@ -61,9 +62,11 @@ Name | Arguments | Expected return value | Description
 ---- | --------- | --------------------- | -----------
 options_callback | \DataContainer $dc, $arrRelation | $arrOptions | Return the submissionField options as array for both front and back end.
 find_entity_callback | $varId, $arrRelation, $objModule  | Return the entity Model or null if not found.
+addTokens_callback |  $objItem, $arrTokens, $arrRelation, $objNotification, $strLanguage, $objGatewayModel / Add custom notification tokens. Callback have to return $arrTokens.
 
 ### InsertTags
 
 Tag | Arguments | Example
 --- | --------- | ------- 
 news_submission_link | PAGE_ID :: MODULE_ID :: NEWS_ID | {{news_submission_link::55::77::308}}
+event_submission_link | PAGE_ID :: MODULE_ID :: NEWS_ID | {{news_submission_link::15::55::306}}
