@@ -25,7 +25,7 @@ $arrDca['palettes'][HeimrichHannot\Submissions\Creator\SubmissionCreator::MODULE
 	'{relation_legend},addSubmissionRelation;'.
 	'{action_legend},addUpdateConditions,allowIdAsGetParameter;' .
 	'{redirect_legend},formHybridResetAfterSubmission,formHybridAddFieldDependentRedirect,jumpTo,formHybridJumpToPreserveParams;' .
-	'{misc_legend},formHybridAsync,formHybridSuccessMessage,formHybridAddDefaultValues,formHybridAddSubmitValues,setPageTitle,addClientsideValidation;'.
+	'{misc_legend},formHybridAsync,formHybridSuccessMessage,formHybridSkipScrollingToSuccessMessage,formHybridAddDefaultValues,formHybridAddSubmitValues,setPageTitle,addClientsideValidation;'.
 	'{template_legend},formHybridTemplate,itemTemplate,customTpl;' .
 	'{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
