@@ -93,9 +93,9 @@ class Hooks
 			
 			$arrData = SubmissionModel::prepareData($objItem, $arrRelation['table'], $GLOBALS['TL_DCA'][$arrRelation['table']], $objDc);
 			$arrTokens = array_merge($arrTokens, SubmissionModel::tokenizeData($arrData, 'event'));
-			
+
 			// Options callback
-			if (is_array($arrRelation['addTokens_callback']))
+			if (is_array($arrRelation['addTokens_callback']) && isset($arrCallback[0]) && class_exists($arrCallback[0]))
 			{
 				$arrCallback = $arrRelation['addTokens_callback'];
 				$arrTokens = \Controller::importStatic($arrCallback[0])->$arrCallback[1]($objItem, $arrTokens, $arrRelation, $objNotification, $strLanguage, $objGatewayModel);
