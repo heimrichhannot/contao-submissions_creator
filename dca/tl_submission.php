@@ -52,3 +52,5 @@ $arrFields = array
 );
 
 $arrDca['fields'] = array_merge($arrDca['fields'], $arrFields);
+
+\HeimrichHannot\Haste\Dca\General::addSessionIDFieldAndCallback('tl_submission');

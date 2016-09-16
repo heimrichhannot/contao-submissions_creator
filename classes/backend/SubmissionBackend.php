@@ -14,6 +14,7 @@ namespace HeimrichHannot\Submissions\Creator\Backend;
 use HeimrichHannot\Submissions\Creator\SubmissionCreator;
 use HeimrichHannot\Submissions\SubmissionModel;
 use HeimrichHannot\Submissions\SubmissionArchiveModel;
+use HeimrichHannot\FrontendEdit\FrontendEdit;
 
 class SubmissionBackend extends \Backend
 {
