@@ -154,6 +154,12 @@ class SubmissionCreator extends \Controller
 		}
 		
 		$arrDca = &$GLOBALS['TL_DCA']['tl_submission'];
+
+        // filter menu does not support optgroups
+        if(TL_MODE == 'BE' && $dc->field != 'event')
+        {
+            return $arrOptions;
+        }
 		
 		// remove optgroups if not wanted, or less than 2 optgroups
 		if (count($arrOptionGroups) == 1 || $arrDca['fields'][$arrRelation['submissionField']]['eval']['optgroup'] === false) {
@@ -210,7 +216,13 @@ class SubmissionCreator extends \Controller
 		}
 		
 		$arrDca = &$GLOBALS['TL_DCA']['tl_submission'];
-		
+
+        // filter menu does not support optgroups
+        if(TL_MODE == 'BE' && $dc->field != 'news')
+        {
+            return $arrOptions;
+        }
+
 		// remove optgroups if not wanted, or less than 2 optgroups
 		if (count($arrOptionGroups) == 1 || $arrDca['fields'][$arrRelation['submissionField']]['eval']['optgroup'] === false) {
 			return $arrOptions;
