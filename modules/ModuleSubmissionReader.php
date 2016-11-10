@@ -59,9 +59,6 @@ class ModuleSubmissionReader extends ModuleReader
             $intStop = $this->objRelation->submissionStop;
         }
 
-        dump(\Date::parse(\Config::get('datimFormat'), $intStart));
-        dump(\Date::parse(\Config::get('datimFormat'), $intStop));
-
         if($this->limitSubmissionPeriod)
         {
             if($this->submissionStart != '')
@@ -74,11 +71,6 @@ class ModuleSubmissionReader extends ModuleReader
                 $intStop = ($intStop != '' && $intStop <= $this->submissionStop) ? $intStop : $this->submissionStop;
             }
         }
-
-        dump(\Date::parse(\Config::get('datimFormat'), $intStart));
-        dump(\Date::parse(\Config::get('datimFormat'), $intStop));
-        dump(\Date::parse(\Config::get('datimFormat'), $time));
-
 
         $blnInPeriod = false;
 
