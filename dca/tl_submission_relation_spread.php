@@ -12,12 +12,13 @@ $GLOBALS['TL_DCA']['tl_submission_relation_spread'] = array
 (
 	'palettes'    => array
 	(
-		'__selector__' => array('addSubmissionRelation'),
-		'default'      => '{submission_legend},addSubmissionRelation;',
+		'__selector__' => array('addSubmissionRelation', 'limitSubmissionPeriod'),
+		'default'      => '{submission_legend},addSubmissionRelation,limitSubmissionPeriod;',
 	),
 	'subpalettes' => array
 	(
 		'addSubmissionRelation' => 'submissionRelation',
+        'limitSubmissionPeriod' => 'submissionStart, submissionStop'
 	),
 	'fields'      => array
 	(
@@ -38,5 +39,29 @@ $GLOBALS['TL_DCA']['tl_submission_relation_spread'] = array
 			'eval'             => array('includeBlankOption' => true, 'mandatory' => true),
 			'sql'              => "int(10) unsigned NOT NULL default '0'",
 		),
+        'limitSubmissionPeriod' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_submission_relation_spread']['limitSubmissionPeriod'],
+            'exclude'                 => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('submitOnChange'=>true, 'doNotCopy'=>true),
+            'sql'                     => "char(1) NOT NULL default ''"
+        ),
+        'submissionStart' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_submission_relation_spread']['submissionStart'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+            'sql'                     => "varchar(10) NOT NULL default ''"
+        ),
+        'submissionStop' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_submission_relation_spread']['submissionStop'],
+            'exclude'                 => true,
+            'inputType'               => 'text',
+            'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+            'sql'                     => "varchar(10) NOT NULL default ''"
+        )
 	),
 );

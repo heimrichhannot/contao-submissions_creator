@@ -88,7 +88,6 @@ class SubmissionBackend extends \Backend
 		$arrDca = &$GLOBALS['TL_DCA']['tl_submission'];
 		$objSubmission = SubmissionModel::findByPk($dc->id);
 			
-		
 		if($dc->objModule !== null && $dc->objModule->addSubmissionRelation)
 		{
 			if(($arrRelation = $GLOBALS['SUBMISSION_RELATIONS'][$dc->objModule->submissionRelation]))

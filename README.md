@@ -33,6 +33,7 @@ It provides a reader module, that can create custom frontend forms with possible
 * submission form creation
 * custom field, mandatory fields, custom default values
 * store submissions in custom submission archives
+* limit submit period for submissions (on relations and module)  
 * connect submissions with other contao entities (builtin: news & events)
 * async submission
 * redirect after submission

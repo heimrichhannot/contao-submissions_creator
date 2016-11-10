@@ -39,7 +39,7 @@ $GLOBALS['SUBMISSION_RELATIONS'] = array
 	'news'     => array
 	(
 		'table'                 => 'tl_news', // required for invoking tl_submision_relation_spread fields to this datacontainer
-		'invokePalettes'        => array('default' => 'addImage'), // invoke tl_submision_relation_spread palette here
+		'invokePalettes'        => array('default' => 'addImage;'), // invoke tl_submision_relation_spread palette here
 		'moduleFields'          => 'news_archives', // tl_module allowed archive field
 		'submissionField'       => 'news', // tl_submission field where to store related entity id in
 		'request_parameter'     => 'rel', // the related GET request parameter containing the related entity id, it not set, submissionField value will taken as parameter

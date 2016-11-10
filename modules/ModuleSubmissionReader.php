@@ -14,6 +14,11 @@ use HeimrichHannot\FrontendEdit\ModuleReader;
 
 class ModuleSubmissionReader extends ModuleReader
 {
+    /**
+     * @var \Model
+     */
+    protected $objRelation;
+
 	public function generate()
 	{
 		if (TL_MODE == 'BE') {
@@ -26,7 +31,67 @@ class ModuleSubmissionReader extends ModuleReader
 			
 			return $objTemplate->parse();
 		}
-		
+
+        if($this->addSubmissionRelation)
+        {
+            if(($arrRelation = $GLOBALS['SUBMISSION_RELATIONS'][$this->submissionRelation]))
+            {
+                if($arrRelation['setDefaultFromRequest'])
+                {
+                    $this->objRelation = SubmissionCreator::getRelationFromRequest($this->objModel, $arrRelation);
+                }
+            }
+        }
+
 		return parent::generate();
 	}
+
+	protected function compile()
+    {
+        $time = \Date::floorToMinute();
+        $intStart = null;
+        $intStop = null;
+
+        // overwrite start from related entity, but only if selected entity period is between
+        if($this->objRelation !== null && $this->objRelation->limitSubmissionPeriod)
+        {
+            $intStart = $this->objRelation->submissionStart;
+            $intStop = $this->objRelation->submissionStop;
+        }
+
+        dump(\Date::parse(\Config::get('datimFormat'), $intStart));
+        dump(\Date::parse(\Config::get('datimFormat'), $intStop));
+
+        if($this->limitSubmissionPeriod)
+        {
+            if($this->submissionStart != '')
+            {
+                $intStart = ($intStart != '' && $intStart >= $this->submissionStart) ? $intStart : $this->submissionStart;
+            }
+
+            if($this->submissionStop != '')
+            {
+                $intStop = ($intStop != '' && $intStop <= $this->submissionStop) ? $intStop : $this->submissionStop;
+            }
+        }
+
+        dump(\Date::parse(\Config::get('datimFormat'), $intStart));
+        dump(\Date::parse(\Config::get('datimFormat'), $intStop));
+        dump(\Date::parse(\Config::get('datimFormat'), $time));
+
+
+        $blnInPeriod = false;
+
+        if(($intStart == '' || $intStart <= $time) && ($intStop == '' || ($time + 60) <= $intStop))
+        {
+            $blnInPeriod = true;
+        }
+
+        // render submission form only within period
+        if($blnInPeriod)
+        {
+            return parent::compile();
+        }
+
+    }
 }

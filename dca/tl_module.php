@@ -19,9 +19,11 @@ $arrDca['config']['onload_callback'][] = array('HeimrichHannot\Submissions\Creat
  * Palettes
  */
 $arrDca['palettes']['__selector__'][] = 'addSubmissionRelation';
+$arrDca['palettes']['__selector__'][] = 'limitSubmissionPeriod';
 $arrDca['palettes'][HeimrichHannot\Submissions\Creator\SubmissionCreator::MODULE_SUBMISSION_READER] =
 	'{title_legend},name,headline,type;' .
 	'{entity_legend},formHybridPalette,formHybridEditable,formHybridAddEditableRequired,formHybridAddPermanentFields,formHybridAddDefaultValues,defaultArchive;'.
+    '{period_legend},limitSubmissionPeriod;' .
 	'{relation_legend},addSubmissionRelation;'.
 	'{action_legend},addUpdateConditions,formHybridAllowIdAsGetParameter;' .
 	'{redirect_legend},formHybridResetAfterSubmission,formHybridAddFieldDependentRedirect,jumpTo,formHybridJumpToPreserveParams;' .
@@ -34,6 +36,7 @@ $arrDca['palettes'][HeimrichHannot\Submissions\Creator\SubmissionCreator::MODULE
  * Subpalettes
  */
 $arrDca['subpalettes']['addSubmissionRelation'] = 'submissionRelation';
+$arrDca['subpalettes']['limitSubmissionPeriod'] = 'submissionStart,submissionStop';
 
 /**
  * Fields
@@ -57,7 +60,31 @@ $arrFields = array
 		'reference'				 => $GLOBALS['TL_LANG']['MOD'],
 		'sql'                     => "varchar(32) NOT NULL default ''",
 		'eval'                    => array('includeBlankOption'=>true, 'submitOnChange'=>true),
-	)
+	),
+    'limitSubmissionPeriod' => array
+    (
+        'label'                   => &$GLOBALS['TL_LANG']['tl_module']['limitSubmissionPeriod'],
+        'exclude'                 => true,
+        'inputType'               => 'checkbox',
+        'eval'                    => array('submitOnChange'=>true, 'doNotCopy'=>true),
+        'sql'                     => "char(1) NOT NULL default ''"
+    ),
+    'submissionStart' => array
+    (
+        'label'                   => &$GLOBALS['TL_LANG']['tl_module']['submissionStart'],
+        'exclude'                 => true,
+        'inputType'               => 'text',
+        'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+        'sql'                     => "varchar(10) NOT NULL default ''"
+    ),
+    'submissionStop' => array
+    (
+        'label'                   => &$GLOBALS['TL_LANG']['tl_module']['submissionStop'],
+        'exclude'                 => true,
+        'inputType'               => 'text',
+        'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
+        'sql'                     => "varchar(10) NOT NULL default ''"
+    )
 );
 
 $arrDca['fields'] = array_merge($arrDca['fields'], $arrFields);
