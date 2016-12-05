@@ -11,6 +11,7 @@
 namespace HeimrichHannot\Submissions\Creator;
 
 use HeimrichHannot\FrontendEdit\ModuleReader;
+use HeimrichHannot\StatusMessages\StatusMessage;
 
 class ModuleSubmissionReader extends ModuleReader
 {
@@ -85,5 +86,10 @@ class ModuleSubmissionReader extends ModuleReader
             return parent::compile();
         }
 
+
+        if($this->objRelation !== null && ($arrRelation = $GLOBALS['SUBMISSION_RELATIONS'][$this->submissionRelation]))
+		{
+			StatusMessage::addError(sprintf($arrRelation['inactive_message'][0], $this->objRelation->{$arrRelation['inactive_message'][1]}), $this->id);
+		}
     }
 }

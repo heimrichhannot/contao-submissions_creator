@@ -67,7 +67,10 @@ addTokens_callback |  $objItem, $arrTokens, $arrRelation, $objNotification, $str
 
 ### InsertTags
 
-Tag | Arguments | Example
---- | --------- | ------- 
-news_submission_link | PAGE_ID :: MODULE_ID :: NEWS_ID | {{news_submission_link::55::77::308}}
-event_submission_link | PAGE_ID :: MODULE_ID :: NEWS_ID | {{news_submission_link::15::55::306}}
+Tag | Arguments | Example | Description 
+--- | --------- | ------- | -------
+news_submission_link | PAGE_ID :: MODULE_ID :: NEWS_ID | {{news_submission_link::55::77::308}} | Return the link to a related news submission
+event_submission_link | PAGE_ID :: MODULE_ID :: EVENT_ID | {{event_submission_link::15::55::306}} | Return the link to a related event submission
+news_submission_active | MODULE_ID :: NEWS_ID | {{news_submission_active::77::308}} | Determine that the related news submission is active, within submission period.
+event_submission_active | MODULE_ID :: EVENT_ID | {{event_submission_active::55::306}} | Determine that the related event submission is active, within submission period.
+

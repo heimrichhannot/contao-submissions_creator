@@ -45,10 +45,12 @@ $GLOBALS['SUBMISSION_RELATIONS'] = array
 		'request_parameter'     => 'rel', // the related GET request parameter containing the related entity id, it not set, submissionField value will taken as parameter
 		'options_callback'      => array('HeimrichHannot\Submissions\Creator\SubmissionCreator', 'getRelatedNews'), // submissionField options_callback --> set options
 		'setDefaultFromRequest' => true, // set submissionsField from GET request parameter
-		'insertTagLink'         => '{{news_submission_link::PAGE_ID::MODULE_ID::ENTITY_ID}}', // PAGE_ID and ENTITY_ID are available for replacement
+		'insertTagLink'         => '{{news_submission_link::PAGE_ID::MODULE_ID::ENTITY_ID}}', // MODULE_ID, PAGE_ID and ENTITY_ID are available for replacement
+		'insertTagActive'       => '{{news_submission_active::MODULE_ID::ENTITY_ID}}', // MODULE_ID and ENTITY_ID are available for replacement
 		'useAutoItem'           => true,
 		'find_entity_callback'  => array('HeimrichHannot\Submissions\Creator\SubmissionCreator', 'findRelatedNewsEntity'),
 		'addTokens_callback'    => array(), // add custom tokens for notification here
+		'inactive_message'      => array(&$GLOBALS['TL_LANG']['MSC']['submission_news_inactive'], 'headline'),
 		'entity_tokens'   => array
 		(
 			\HeimrichHannot\Submissions\Submissions::NOTIFICATION_TYPE_FORM_SUBMISSION => array
@@ -78,10 +80,12 @@ $GLOBALS['SUBMISSION_RELATIONS'] = array
 		'request_parameter'     => 'rel', // the related GET request parameter containing the related entity id, it not set, submissionField value will taken as parameter
 		'options_callback'      => array('HeimrichHannot\Submissions\Creator\SubmissionCreator', 'getRelatedEvents'), // submissionField options_callback --> set options
 		'setDefaultFromRequest' => true, // set submissionsField from GET request parameter
-		'insertTagLink'         => '{{event_submission_link::PAGE_ID::MODULE_ID::ENTITY_ID}}', // PAGE_ID and ENTITY_ID are available for replacement
+		'insertTagLink'         => '{{event_submission_link::PAGE_ID::MODULE_ID::ENTITY_ID}}', // MODULE_ID, PAGE_ID and ENTITY_ID are available for replacement
+		'insertTagActive'       => '{{event_submission_active::MODULE_ID::ENTITY_ID}}', // MODULE_ID AND ENTITY_ID are available for replacement
 		'useAutoItem'           => true,
 		'find_entity_callback'  => array('HeimrichHannot\Submissions\Creator\SubmissionCreator', 'findRelatedEventEntity'),
 		'addTokens_callback'    => array('HeimrichHannot\Submissions\Creator\SubmissionCreator', 'addEventTokens'), // add custom tokens for notification here
+		'inactive_message'      => array(&$GLOBALS['TL_LANG']['MSC']['submission_event_inactive'], 'title'),
 		'entity_tokens'   => array
 		(
 			\HeimrichHannot\Submissions\Submissions::NOTIFICATION_TYPE_FORM_SUBMISSION => array
