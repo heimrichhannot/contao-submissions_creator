@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.11] - 2016-12-05
+
+### Added
+- added news_submission_active inserttag
+- added event_submission_active inserttag
+- add status message to ModuleSubmissionReader when not within submission period
+
 ## [1.0.10] - 2016-11-11
 
 ### Added
