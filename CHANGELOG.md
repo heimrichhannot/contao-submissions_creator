@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.12] - 2017-01-16
+
+### Fixed
+- fixed getRelatedNews() and getRelatedEvent() for performance issues
+
+### Fixed
+- news and event submission relation invokation on datacontainer
+
 ## [1.0.11] - 2016-12-05
 
 ### Added
