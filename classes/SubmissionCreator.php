@@ -13,6 +13,7 @@ namespace HeimrichHannot\Submissions\Creator;
 use HeimrichHannot\Haste\DateUtil;
 use HeimrichHannot\Haste\Util\Url;
 use HeimrichHannot\Submissions\SubmissionArchiveModel;
+use HeimrichHannot\Submissions\SubmissionModel;
 
 class SubmissionCreator extends \Controller
 {
@@ -162,12 +163,19 @@ class SubmissionCreator extends \Controller
         {
             $objEvents = \CalendarEventsModel::findUpcomingByPids(deserialize($dc->objModule->cal_calendar, true), 0, array('order' => 'title'));
         } // back end mode without module & relation context, display only selected event for performance reasons
-        else
+		elseif ($dc->activeRecord->event)
+		{
+			$objEvents = new \Model\Collection(array(\CalendarEventsModel::findByPk($dc->activeRecord->event)), 'tl_calendar_events');
+		}
+		else
         {
-            if ($dc->activeRecord->event)
-            {
-                $objEvents = new \Model\Collection(array(\CalendarEventsModel::findByPk($dc->activeRecord->event)), 'tl_calendar_events');
-            }
+			$objEventSubmission = SubmissionModel::findBy(array('event > 0'), null);
+
+			// display only events with submissions for backend filter
+			if($objEventSubmission !== null)
+			{
+				$objEvents = \CalendarEventsModel::findBy(array("tl_calendar_events.id IN(" . implode(',', array_map('intval', $objEventSubmission->fetchEach('event'))) . ")"), null);
+			}
         }
 
         if ($objEvents === null)
@@ -239,8 +247,19 @@ class SubmissionCreator extends \Controller
         } // back end mode without module & relation context, display only selected event for performance reasons
         elseif ($dc->activeRecord->news)
         {
-            $objNews = new \Model\Collection(array(\NewsModel::findByPk($dc->activeRecord->news)), 'tl_news');
+			$objNews = new \Model\Collection(array(\NewsModel::findByPk($dc->activeRecord->news)), 'tl_news');
         }
+		// display only events with submissions for backend filter
+        else
+		{
+			$objNewsSubmission = SubmissionModel::findBy(array('news > 0'), null);
+
+			// display only events with submissions for backend filter
+			if($objNewsSubmission !== null)
+			{
+				$objNews = \NewsModel::findBy(array("tl_news.id IN(" . implode(',', array_map('intval', $objNewsSubmission->fetchEach('news'))) . ")"), null);
+			}
+		}
 
         if ($objNews === null)
         {

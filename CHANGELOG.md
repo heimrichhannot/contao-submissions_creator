@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.13] - 2017-01-17
+
+### Fixed
+- fixed getRelatedNews() and getRelatedEvent() within backend filter
+
 ## [1.0.12] - 2017-01-16
 
 ### Fixed
