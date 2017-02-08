@@ -40,7 +40,7 @@ class ModuleBackend extends \Backend
 		{
 			$objModule->formHybridDataContainer = 'tl_submission';
 			$objModule->formHybridPalette = 'default';
-			$objModule->noIdBehavior = 'create';
+			$objModule->noIdBehavior = $objModule->noIdBehavior ?: 'create';
 			$objModule->allowDelete = '';
 			$objModule->deactivateTokens = true;
 			

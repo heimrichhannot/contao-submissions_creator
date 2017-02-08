@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.14] - 2017-02-08
+
+### Changed
+- noIdBehavior is 'create' if no value is set
+
 ## [1.0.13] - 2017-01-17
 
 ### Fixed
