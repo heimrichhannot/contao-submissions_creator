@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.15] - 2017-02-23
+
+### Fixed
+- catch $objNews/$objEvent NULL within SubmissionCreator::getRelatedEvents and SubmissionCreator::getRelatedNews
+
 ## [1.0.14] - 2017-02-08
 
 ### Changed

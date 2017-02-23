@@ -163,9 +163,9 @@ class SubmissionCreator extends \Controller
         {
             $objEvents = \CalendarEventsModel::findUpcomingByPids(deserialize($dc->objModule->cal_calendar, true), 0, array('order' => 'title'));
         } // back end mode without module & relation context, display only selected event for performance reasons
-		elseif ($dc->activeRecord->event)
+		elseif ($dc->activeRecord->event && ($objEvents = \CalendarEventsModel::findByPk($dc->activeRecord->event)) !== null)
 		{
-			$objEvents = new \Model\Collection(array(\CalendarEventsModel::findByPk($dc->activeRecord->event)), 'tl_calendar_events');
+			$objEvents = new \Model\Collection(array($objEvents), 'tl_calendar_events');
 		}
 		else
         {
@@ -245,9 +245,9 @@ class SubmissionCreator extends \Controller
         {
             $objNews = \NewsModel::findPublishedByPids(deserialize($dc->objModule->news_archives, true), null, 0, 0, array('order' => 'headline'));
         } // back end mode without module & relation context, display only selected event for performance reasons
-        elseif ($dc->activeRecord->news)
+        elseif ($dc->activeRecord->news && ($objNews = \NewsModel::findByPk($dc->activeRecord->news)) !== null)
         {
-			$objNews = new \Model\Collection(array(\NewsModel::findByPk($dc->activeRecord->news)), 'tl_news');
+			$objNews = new \Model\Collection(array($objNews), 'tl_news');
         }
 		// display only events with submissions for backend filter
         else
