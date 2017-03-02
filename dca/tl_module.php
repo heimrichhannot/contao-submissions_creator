@@ -26,7 +26,7 @@ $arrDca['palettes'][HeimrichHannot\Submissions\Creator\SubmissionCreator::MODULE
     '{period_legend},limitSubmissionPeriod;' .
 	'{relation_legend},addSubmissionRelation;'.
 	'{action_legend},addUpdateConditions,formHybridAllowIdAsGetParameter;' .
-	'{redirect_legend},formHybridSingleSubmission,formHybridResetAfterSubmission,formHybridAddFieldDependentRedirect,jumpTo,formHybridJumpToPreserveParams;' .
+	'{redirect_legend},formHybridSingleSubmission,formHybridResetAfterSubmission,formHybridAddFieldDependentRedirect,jumpTo,formHybridAddHashToAction,formHybridJumpToPreserveParams;' .
 	'{email_legend},formHybridSubmissionNotification,formHybridConfirmationNotification;' .
 	'{misc_legend},formHybridAsync,formHybridSuccessMessage,formHybridSkipScrollingToSuccessMessage,formHybridCustomSubmit,formHybridAddSubmitValues,setPageTitle,addClientsideValidation;'.
 	'{template_legend},formHybridTemplate,itemTemplate,customTpl;' .
