@@ -97,7 +97,7 @@ class Hooks
             if (is_array($arrRelation['addTokens_callback']) && isset($arrCallback[0]) && class_exists($arrCallback[0]))
             {
                 $arrCallback = $arrRelation['addTokens_callback'];
-                $arrTokens   = \Controller::importStatic($arrCallback[0])->$arrCallback[1]($objItem, $arrTokens, $arrRelation, $objNotification, $strLanguage, $objGatewayModel);
+                $arrTokens   = \Controller::importStatic($arrCallback[0])->{$arrCallback[1]}($objItem, $arrTokens, $arrRelation, $objNotification, $strLanguage, $objGatewayModel);
             } elseif (is_callable($arrRelation['addTokens_callback']))
             {
                 $arrTokens = $arrRelation['addTokens_callback']($objItem, $arrTokens, $arrRelation, $objNotification, $strLanguage, $objGatewayModel);

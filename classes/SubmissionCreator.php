@@ -120,7 +120,7 @@ class SubmissionCreator extends \Controller
         {
             $arrCallback = $arrRelation['find_entity_callback'];
 
-            return static::importStatic($arrCallback[0])->$arrCallback[1]($varId, $arrRelation, $objModule);
+            return static::importStatic($arrCallback[0])->{$arrCallback[1]}($varId, $arrRelation, $objModule);
         }
         elseif (is_callable($arrRelation['find_entity_callback']))
         {

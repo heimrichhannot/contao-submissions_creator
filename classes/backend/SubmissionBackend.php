@@ -99,7 +99,7 @@ class SubmissionBackend extends \Backend
 					{
 						$arrCallback = $arrRelation['options_callback'];
 						unset($arrDca['fields'][$arrRelation['submissionField']]['options_callback']);
-						$arrDca['fields'][$arrRelation['submissionField']]['options'] = static::importStatic($arrCallback[0])->$arrCallback[1]($dc, $arrRelation);
+						$arrDca['fields'][$arrRelation['submissionField']]['options'] = static::importStatic($arrCallback[0])->{$arrCallback[1]}($dc, $arrRelation);
 					}
 					elseif (is_callable($arrRelation['options_callback']))
 					{

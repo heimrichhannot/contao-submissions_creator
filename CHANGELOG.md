@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.17] - 2017-05-09
+
+### Added
+- php 7 support
+
 ## [1.0.16] - 2017-03-02
 
 ### Added
