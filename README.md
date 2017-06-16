@@ -1,6 +1,6 @@
 # Submissions Creator
 
-Submission Creator makes usage from the power of [contao-submissions](https://github.com/heimrichhannot/contao-subnmissions) and [contao-frontendedit](https://github.com/heimrichhannot/contao-frontendedit).
+Submission Creator makes usage from the power of [contao-submissions](https://github.com/heimrichhannot/contao-submissions) and [contao-frontendedit](https://github.com/heimrichhannot/contao-frontendedit).
 It provides a reader module, that can create custom frontend forms with possible relations to other contao entities like news.
 
 ![alt Module](docs/module.jpg)
