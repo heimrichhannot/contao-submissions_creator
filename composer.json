@@ -20,7 +20,7 @@
         "php": "~5.4 || ~7.0",
         "contao/core-bundle": "^3.5.1 || ~4.1",
 		"heimrichhannot/contao-submissions": "~1.0",
-		"heimrichhannot/contao-frontendedit": "~3.0"
+		"heimrichhannot/contao-frontendedit": "~4.0"
     },
     "autoload": {
         "classmap": [""]
