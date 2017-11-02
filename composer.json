@@ -1,35 +1,43 @@
 {
-    "name": "heimrichhannot/contao-submissions_creator",
-    "description":"A module for creating contao-submissions with contao-frontendedit and contao-submission.",
-    "keywords":["contao", "submissions", "form", "module", "contact"],
-    "type": "contao-module",
-    "homepage":"https://github.com/heimrichhannot/contao-submissions_creator",
-    "license":"LGPL-3.0+",
-    "authors":[
-        {
-            "name":"Heimrich & Hannot",
-            "email":"digitales@heimrich-hannot.de",
-            "homepage":"http://www.heimrich-hannot.de",
-            "role":"Developer"
-        }
-    ],
-    "support":{
-        "issues":"https://github.com/heimrichhannot/contao-submissions_creator/issues"
-    },
-    "require": {
-        "php": "~5.4 || ~7.0",
-        "contao/core-bundle": "^3.5.1 || ~4.1",
-		"heimrichhannot/contao-submissions": "~1.0",
-		"heimrichhannot/contao-frontendedit": "~4.0"
-    },
-    "autoload": {
-        "classmap": [""]
-    },
-    "extra": {
-        "contao": {
-            "sources": {
-                "": "system/modules/submissions_creator"
-            }
-        }
+  "name": "heimrichhannot/contao-submissions_creator",
+  "description": "A module for creating contao-submissions with contao-frontendedit and contao-submission.",
+  "keywords": [
+    "contao",
+    "submissions",
+    "form",
+    "module",
+    "contact"
+  ],
+  "type": "contao-module",
+  "homepage": "https://github.com/heimrichhannot/contao-submissions_creator",
+  "license": "LGPL-3.0+",
+  "authors": [
+    {
+      "name": "Heimrich & Hannot",
+      "email": "digitales@heimrich-hannot.de",
+      "homepage": "http://www.heimrich-hannot.de",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "issues": "https://github.com/heimrichhannot/contao-submissions_creator/issues"
+  },
+  "require": {
+    "php": "~5.6 || ~7.0",
+    "contao/core-bundle": "^3.5.1 || ~4.1",
+    "heimrichhannot/contao-submissions": "~1.0",
+    "heimrichhannot/contao-frontendedit": "~4.0"
+  },
+  "autoload": {
+    "classmap": [
+      ""
+    ]
+  },
+  "extra": {
+    "contao": {
+      "sources": {
+        "": "system/modules/submissions_creator"
+      }
+    }
+  }
 }

@@ -11,5 +11,5 @@
 /**
  * Front end modules
  */
-$GLOBALS['TL_LANG']['MSC']['submission_news_inactive'] = 'Aktuell ist keine Einsendung für "%s" möglich.';
+$GLOBALS['TL_LANG']['MSC']['submission_news_inactive']  = 'Aktuell ist keine Einsendung für "%s" möglich.';
 $GLOBALS['TL_LANG']['MSC']['submission_event_inactive'] = 'Aktuell ist keine Teilnahme an der Veranstaltung "%s" möglich.';

@@ -10,46 +10,46 @@
 
 $arrDca = &$GLOBALS['TL_DCA']['tl_submission'];
 
-$arrDca['config']['onload_callback'][]   = array('HeimrichHannot\Submissions\Creator\Backend\SubmissionBackend', 'modifyPalette', true);
-$arrDca['config']['onsubmit_callback'][] = array('HeimrichHannot\Submissions\Creator\Backend\SubmissionBackend', 'setSubmissionArchiveByRelation');
-$arrDca['config']['onsubmit_callback'][] = array('HeimrichHannot\Submissions\Creator\Backend\SubmissionBackend', 'sendNotificationsByArchive');
+$arrDca['config']['onload_callback'][]   = ['HeimrichHannot\Submissions\Creator\Backend\SubmissionBackend', 'modifyPalette', true];
+$arrDca['config']['onsubmit_callback'][] = ['HeimrichHannot\Submissions\Creator\Backend\SubmissionBackend', 'setSubmissionArchiveByRelation'];
+$arrDca['config']['onsubmit_callback'][] = ['HeimrichHannot\Submissions\Creator\Backend\SubmissionBackend', 'sendNotificationsByArchive'];
 
 /**
  * Fields
  */
-$arrFields = array
-(
-	'news'  => array
-	(
-		'label'            => &$GLOBALS['TL_LANG']['tl_submission']['news'],
-		'inputType'        => 'select',
-		'exclude'          => true,
-		'filter'           => true,
-		'search'           => true,
-		'options_callback' => array('HeimrichHannot\Submissions\Creator\SubmissionCreator', 'getRelatedNews'),
-		'eval'             => array
-		(
-			'mandatory' => true,
-			'optgroup'  => true, // set to false if no optgroups are required
-		),
-		'sql'              => "int(10) unsigned NOT NULL default '0'",
-	),
-	'event' => array
-	(
-		'label'            => &$GLOBALS['TL_LANG']['tl_submission']['event'],
-		'inputType'        => 'select',
-		'filter'           => true,
-		'exclude'          => true,
-		'search'           => true,
-		'options_callback' => array('HeimrichHannot\Submissions\Creator\SubmissionCreator', 'getRelatedEvents'),
-		'eval'             => array
-		(
-			'mandatory' => true,
-			'optgroup'  => true, // set to false if no optgroups are required
-		),
-		'sql'              => "int(10) unsigned NOT NULL default '0'",
-	),
-);
+$arrFields =
+    [
+        'news'  =>
+            [
+                'label'            => &$GLOBALS['TL_LANG']['tl_submission']['news'],
+                'inputType'        => 'select',
+                'exclude'          => true,
+                'filter'           => true,
+                'search'           => true,
+                'options_callback' => ['HeimrichHannot\Submissions\Creator\SubmissionCreator', 'getRelatedNews'],
+                'eval'             =>
+                    [
+                        'mandatory' => true,
+                        'optgroup'  => true, // set to false if no optgroups are required
+                    ],
+                'sql'              => "int(10) unsigned NOT NULL default '0'",
+            ],
+        'event' =>
+            [
+                'label'            => &$GLOBALS['TL_LANG']['tl_submission']['event'],
+                'inputType'        => 'select',
+                'filter'           => true,
+                'exclude'          => true,
+                'search'           => true,
+                'options_callback' => ['HeimrichHannot\Submissions\Creator\SubmissionCreator', 'getRelatedEvents'],
+                'eval'             =>
+                    [
+                        'mandatory' => true,
+                        'optgroup'  => true, // set to false if no optgroups are required
+                    ],
+                'sql'              => "int(10) unsigned NOT NULL default '0'",
+            ],
+    ];
 
 $arrDca['fields'] = array_merge($arrDca['fields'], $arrFields);
 

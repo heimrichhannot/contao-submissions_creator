@@ -20,76 +20,66 @@ class ModuleSubmissionReader extends ModuleReader
      */
     protected $objRelation;
 
-	public function generate()
-	{
-		if (TL_MODE == 'BE') {
-			$objTemplate           = new \BackendTemplate('be_wildcard');
-			$objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['FMD'][$this->type][0]) . ' ###';
-			$objTemplate->title    = $this->headline;
-			$objTemplate->id       = $this->id;
-			$objTemplate->link     = $this->name;
-			$objTemplate->href     = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
-			
-			return $objTemplate->parse();
-		}
+    public function generate()
+    {
+        if (TL_MODE == 'BE') {
+            $objTemplate           = new \BackendTemplate('be_wildcard');
+            $objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['FMD'][$this->type][0]) . ' ###';
+            $objTemplate->title    = $this->headline;
+            $objTemplate->id       = $this->id;
+            $objTemplate->link     = $this->name;
+            $objTemplate->href     = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
 
-        if($this->addSubmissionRelation)
-        {
-            if(($arrRelation = $GLOBALS['SUBMISSION_RELATIONS'][$this->submissionRelation]))
-            {
-                if($arrRelation['setDefaultFromRequest'])
-                {
+            return $objTemplate->parse();
+        }
+
+        if ($this->addSubmissionRelation) {
+            if (($arrRelation = $GLOBALS['SUBMISSION_RELATIONS'][$this->submissionRelation])) {
+                if ($arrRelation['setDefaultFromRequest']) {
                     $this->objRelation = SubmissionCreator::getRelationFromRequest($this->objModel, $arrRelation);
                 }
             }
         }
 
-		return parent::generate();
-	}
+        return parent::generate();
+    }
 
-	protected function compile()
+    protected function compile()
     {
-        $time = \Date::floorToMinute();
+        $time     = \Date::floorToMinute();
         $intStart = null;
-        $intStop = null;
+        $intStop  = null;
 
         // overwrite start from related entity, but only if selected entity period is between
-        if($this->objRelation !== null && $this->objRelation->limitSubmissionPeriod)
-        {
+        if ($this->objRelation !== null && $this->objRelation->limitSubmissionPeriod) {
             $intStart = $this->objRelation->submissionStart;
-            $intStop = $this->objRelation->submissionStop;
+            $intStop  = $this->objRelation->submissionStop;
         }
 
-        if($this->limitSubmissionPeriod)
-        {
-            if($this->submissionStart != '')
-            {
+        if ($this->limitSubmissionPeriod) {
+            if ($this->submissionStart != '') {
                 $intStart = ($intStart != '' && $intStart >= $this->submissionStart) ? $intStart : $this->submissionStart;
             }
 
-            if($this->submissionStop != '')
-            {
+            if ($this->submissionStop != '') {
                 $intStop = ($intStop != '' && $intStop <= $this->submissionStop) ? $intStop : $this->submissionStop;
             }
         }
 
         $blnInPeriod = false;
 
-        if(($intStart == '' || $intStart <= $time) && ($intStop == '' || ($time + 60) <= $intStop))
-        {
+        if (($intStart == '' || $intStart <= $time) && ($intStop == '' || ($time + 60) <= $intStop)) {
             $blnInPeriod = true;
         }
 
         // render submission form only within period
-        if($blnInPeriod)
-        {
+        if ($blnInPeriod) {
             return parent::compile();
         }
 
 
-        if($this->objRelation !== null && ($arrRelation = $GLOBALS['SUBMISSION_RELATIONS'][$this->submissionRelation]))
-		{
-			StatusMessage::addError(sprintf($arrRelation['inactive_message'][0], $this->objRelation->{$arrRelation['inactive_message'][1]}), $this->id);
-		}
+        if ($this->objRelation !== null && ($arrRelation = $GLOBALS['SUBMISSION_RELATIONS'][$this->submissionRelation])) {
+            StatusMessage::addError(sprintf($arrRelation['inactive_message'][0], $this->objRelation->{$arrRelation['inactive_message'][1]}), $this->id);
+        }
     }
 }

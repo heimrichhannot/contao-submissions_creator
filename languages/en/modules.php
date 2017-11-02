@@ -11,4 +11,4 @@
 /**
  * Front end modules
  */
-$GLOBALS['TL_LANG']['FMD']['submission_reader'] = array('Submission-Reader', 'Provide as submission reader module that will create submission forms within the frontend.');
+$GLOBALS['TL_LANG']['FMD']['submission_reader'] = ['Submission-Reader', 'Provide as submission reader module that will create submission forms within the frontend.'];

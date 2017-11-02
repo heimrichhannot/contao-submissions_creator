@@ -14,19 +14,18 @@ use HeimrichHannot\Submissions\SubmissionArchiveModel;
 
 class SubmissionRelationSpreadBackend extends \Backend
 {
-	
-	public function getSubmissionArchives(\DataContainer $dc)
-	{
-		$arrOptions = array();
-		
-		$objArchives = SubmissionArchiveModel::findAll();
-		
-		if($objArchives === null)
-		{
-			return $arrOptions;
-		}
-		
-		return $objArchives->fetchEach('title');
-	}
-	
+
+    public function getSubmissionArchives(\DataContainer $dc)
+    {
+        $arrOptions = [];
+
+        $objArchives = SubmissionArchiveModel::findAll();
+
+        if ($objArchives === null) {
+            return $arrOptions;
+        }
+
+        return $objArchives->fetchEach('title');
+    }
+
 }

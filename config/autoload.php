@@ -12,25 +12,25 @@
 /**
  * Register the namespaces
  */
-ClassLoader::addNamespaces(array
-(
+ClassLoader::addNamespaces(
+    [
 	'HeimrichHannot',
-));
+    ]);
 
 
 /**
  * Register the classes
  */
-ClassLoader::addClasses(array
-(
+ClassLoader::addClasses(
+    [
 	// Modules
-	'HeimrichHannot\Submissions\Creator\ModuleSubmissionReader'                  => 'system/modules/submissions_creator/modules/ModuleSubmissionReader.php',
+        'HeimrichHannot\Submissions\Creator\ModuleSubmissionReader'                  => 'system/modules/submissions_creator/modules/ModuleSubmissionReader.php',
 
 	// Classes
-	'HeimrichHannot\Submissions\Creator\InsertTags'                              => 'system/modules/submissions_creator/classes/InsertTags.php',
-	'HeimrichHannot\Submissions\Creator\SubmissionCreator'                       => 'system/modules/submissions_creator/classes/SubmissionCreator.php',
-	'HeimrichHannot\Submissions\Creator\Hooks'                                   => 'system/modules/submissions_creator/classes/Hooks.php',
-	'HeimrichHannot\Submissions\Creator\Backend\SubmissionRelationSpreadBackend' => 'system/modules/submissions_creator/classes/backend/SubmissionRelationSpreadBackend.php',
-	'HeimrichHannot\Submissions\Creator\Backend\ModuleBackend'                   => 'system/modules/submissions_creator/classes/backend/ModuleBackend.php',
-	'HeimrichHannot\Submissions\Creator\Backend\SubmissionBackend'               => 'system/modules/submissions_creator/classes/backend/SubmissionBackend.php',
-));
+        'HeimrichHannot\Submissions\Creator\InsertTags'                              => 'system/modules/submissions_creator/classes/InsertTags.php',
+        'HeimrichHannot\Submissions\Creator\SubmissionCreator'                       => 'system/modules/submissions_creator/classes/SubmissionCreator.php',
+        'HeimrichHannot\Submissions\Creator\Hooks'                                   => 'system/modules/submissions_creator/classes/Hooks.php',
+        'HeimrichHannot\Submissions\Creator\Backend\SubmissionRelationSpreadBackend' => 'system/modules/submissions_creator/classes/backend/SubmissionRelationSpreadBackend.php',
+        'HeimrichHannot\Submissions\Creator\Backend\Module'                          => 'system/modules/submissions_creator/classes/backend/Module.php',
+        'HeimrichHannot\Submissions\Creator\Backend\SubmissionBackend'               => 'system/modules/submissions_creator/classes/backend/SubmissionBackend.php',
+    ]);

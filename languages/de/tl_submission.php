@@ -13,5 +13,5 @@ $arrLang = &$GLOBALS['TL_LANG']['tl_submission'];
 /**
  * Fields
  */
-$arrLang['news'] = array('Nachricht', 'Wählen Sie eine Nachricht als Relation für diese Einsendung aus.');
-$arrLang['event'] = array('Veranstaltung', 'Wählen Sie eine Veranstaltung als Relation für diese Einsendung aus.');
+$arrLang['news']  = ['Nachricht', 'Wählen Sie eine Nachricht als Relation für diese Einsendung aus.'];
+$arrLang['event'] = ['Veranstaltung', 'Wählen Sie eine Veranstaltung als Relation für diese Einsendung aus.'];

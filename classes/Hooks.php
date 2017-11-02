@@ -22,24 +22,21 @@ class Hooks
 
     public function initializeSystemHook()
     {
-        if (!is_array($GLOBALS['SUBMISSION_RELATIONS']))
-        {
+        if (!is_array($GLOBALS['SUBMISSION_RELATIONS'])) {
             return;
         }
 
         // add notification entity tokens recursive
-        foreach ($GLOBALS['SUBMISSION_RELATIONS'] as $strKey => $arrRelation)
-        {
+        foreach ($GLOBALS['SUBMISSION_RELATIONS'] as $strKey => $arrRelation) {
             $arrEntityTokens = $arrRelation['entity_tokens'];
 
-            if (!is_array($arrEntityTokens))
-            {
+            if (!is_array($arrEntityTokens)) {
                 continue;
             }
 
             $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE'] = array_merge_recursive(
-                (array) $GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE'],
-                array(\HeimrichHannot\Submissions\Submissions::NOTIFICATION_TYPE_SUBMISSIONS => $arrRelation['entity_tokens'])
+                (array)$GLOBALS['NOTIFICATION_CENTER']['NOTIFICATION_TYPE'],
+                [\HeimrichHannot\Submissions\Submissions::NOTIFICATION_TYPE_SUBMISSIONS => $arrRelation['entity_tokens']]
             );
         }
 
@@ -48,41 +45,33 @@ class Hooks
 
     public function addTokens(Message $objMessage, &$arrTokens, $strLanguage, $objGatewayModel)
     {
-        if (($objNotification = $objMessage->getRelated('pid')) === null || !$objNotification->type)
-        {
+        if (($objNotification = $objMessage->getRelated('pid')) === null || !$objNotification->type) {
             return true;
         }
 
         // check for submission id
-        if (!is_numeric($arrTokens['tl_submission']))
-        {
+        if (!is_numeric($arrTokens['tl_submission'])) {
             return true;
         }
 
-        if (($objSubmission = SubmissionModel::findByPk($arrTokens['tl_submission'])) === null)
-        {
+        if (($objSubmission = SubmissionModel::findByPk($arrTokens['tl_submission'])) === null) {
             return true;
         }
 
-        if (!is_array($GLOBALS['SUBMISSION_RELATIONS']))
-        {
+        if (!is_array($GLOBALS['SUBMISSION_RELATIONS'])) {
             return true;
         }
 
-        foreach ($GLOBALS['SUBMISSION_RELATIONS'] as $strKey => $arrRelation)
-        {
-            if (!$arrRelation['table'] || !$arrRelation['submissionField'])
-            {
+        foreach ($GLOBALS['SUBMISSION_RELATIONS'] as $strKey => $arrRelation) {
+            if (!$arrRelation['table'] || !$arrRelation['submissionField']) {
                 continue;
             }
 
-            if ($objSubmission->{$arrRelation['submissionField']} < 1)
-            {
+            if ($objSubmission->{$arrRelation['submissionField']} < 1) {
                 continue;
             }
 
-            if (($objItem = SubmissionCreator::findRelatedEntity($objSubmission->{$arrRelation['submissionField']}, $arrRelation)) === null)
-            {
+            if (($objItem = SubmissionCreator::findRelatedEntity($objSubmission->{$arrRelation['submissionField']}, $arrRelation)) === null) {
                 continue;
             }
 
@@ -94,12 +83,10 @@ class Hooks
             $arrTokens = array_merge($arrTokens, SubmissionModel::tokenizeData($arrData, 'event'));
 
             // Options callback
-            if (is_array($arrRelation['addTokens_callback']) && isset($arrCallback[0]) && class_exists($arrCallback[0]))
-            {
+            if (is_array($arrRelation['addTokens_callback']) && isset($arrCallback[0]) && class_exists($arrCallback[0])) {
                 $arrCallback = $arrRelation['addTokens_callback'];
                 $arrTokens   = \Controller::importStatic($arrCallback[0])->{$arrCallback[1]}($objItem, $arrTokens, $arrRelation, $objNotification, $strLanguage, $objGatewayModel);
-            } elseif (is_callable($arrRelation['addTokens_callback']))
-            {
+            } elseif (is_callable($arrRelation['addTokens_callback'])) {
                 $arrTokens = $arrRelation['addTokens_callback']($objItem, $arrTokens, $arrRelation, $objNotification, $strLanguage, $objGatewayModel);
             }
         }
@@ -116,8 +103,7 @@ class Hooks
      */
     public function loadDataContainerHook($strName)
     {
-        if (!is_array($GLOBALS['SUBMISSION_RELATIONS']))
-        {
+        if (!is_array($GLOBALS['SUBMISSION_RELATIONS'])) {
             return false;
         }
 
@@ -126,20 +112,16 @@ class Hooks
         $arrSpreadDca     = $GLOBALS['TL_DCA'][static::SUBMISSION_RELATION_SPREAD_DCA];
         $strSpreadPalette = $arrSpreadDca['palettes']['default'];
 
-        if (!is_array($GLOBALS['SUBMISSION_RELATIONS']))
-        {
+        if (!is_array($GLOBALS['SUBMISSION_RELATIONS'])) {
             return true;
         }
 
-        foreach ($GLOBALS['SUBMISSION_RELATIONS'] as $strKey => $arrRelation)
-        {
-            if ($arrRelation['table'] != $strName)
-            {
+        foreach ($GLOBALS['SUBMISSION_RELATIONS'] as $strKey => $arrRelation) {
+            if ($arrRelation['table'] != $strName) {
                 continue;
             }
 
-            if (!is_array($arrRelation['invokePalettes']))
-            {
+            if (!is_array($arrRelation['invokePalettes'])) {
                 continue;
             }
 
@@ -148,8 +130,7 @@ class Hooks
             $arrDca = &$GLOBALS['TL_DCA'][$strName];
 
             // do not add fields twice, otherwise "exclude" will be reset to true
-            if(!array_intersect_key($arrSpreadDca['fields'], $arrDca['fields']))
-            {
+            if (!array_intersect_key($arrSpreadDca['fields'], $arrDca['fields'])) {
                 $arrDca['fields'] = array_merge($arrDca['fields'], $arrSpreadDca['fields']);
             }
 
@@ -158,22 +139,18 @@ class Hooks
             // add language to TL_LANG palette
             $GLOBALS['TL_LANG'][$strName] = array_merge($GLOBALS['TL_LANG'][$strName], $GLOBALS['TL_LANG'][static::SUBMISSION_RELATION_SPREAD_DCA]);
 
-            foreach ($arrRelation['invokePalettes'] as $strPaletteName => $strSearch)
-            {
-                if (!isset($arrDca['palettes'][$strPaletteName]))
-                {
+            foreach ($arrRelation['invokePalettes'] as $strPaletteName => $strSearch) {
+                if (!isset($arrDca['palettes'][$strPaletteName])) {
                     continue;
                 }
 
                 $strPalette = $arrDca['palettes'][$strPaletteName];
 
-                if (strpos($strPalette, $strSearch) === false)
-                {
+                if (strpos($strPalette, $strSearch) === false) {
                     continue;
                 }
 
-                if (strpos($strPalette, $strSpreadPalette) !== false)
-                {
+                if (strpos($strPalette, $strSpreadPalette) !== false) {
                     continue;
                 }
 
@@ -182,14 +159,13 @@ class Hooks
 
                 $strNext = substr($strPalette, $end, 1);
 
-                switch ($strNext)
-                {
+                switch ($strNext) {
                     case ';':
-                        $strPalette = substr_replace($strPalette, $strSpreadPalette, $end + 1 , 0);
+                        $strPalette = substr_replace($strPalette, $strSpreadPalette, $end + 1, 0);
                         break;
                     case ',':
                     case '{':
-                        $strPalette = substr_replace($strPalette, $strSpreadPalette, $end , 0);
+                        $strPalette = substr_replace($strPalette, $strSpreadPalette, $end, 0);
                         break;
 
                 }
