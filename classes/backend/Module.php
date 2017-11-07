@@ -68,9 +68,9 @@ class Module extends \Backend
             return;
         }
 
-        if (\HeimrichHannot\Haste\Util\Module::isSubModuleOf($objModule->type, 'HeimrichHannot\Submissions\Creator\ModuleSubmissionReader')) {
-            if (!$objModule->formHybridEditable && $objModule->defaultArchive &&
-                ($submissionArchive = SubmissionArchiveModel::findByPk($objModule->defaultArchive)) !== null)
+        if (\HeimrichHannot\Haste\Util\Module::isSubModuleOf($dc->activeRecord->type, 'HeimrichHannot\Submissions\Creator\ModuleSubmissionReader')) {
+            if (!$dc->activeRecord->formHybridEditable && $dc->activeRecord->defaultArchive &&
+                ($submissionArchive = SubmissionArchiveModel::findByPk($dc->activeRecord->defaultArchive)) !== null)
             {
                 $fields = deserialize($submissionArchive->submissionFields, true);
 

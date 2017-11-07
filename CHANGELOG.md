@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.1.2] - 2017-11-07
+
+### Fixed
+- copying fields from submission archive for convenience
+
 ## [1.1.1] - 2017-11-02
 
 ### Added
