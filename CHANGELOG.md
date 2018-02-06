@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - 2018-02-06
+
+### Added
+- dependency to frontendedit 6
+
 ## [2.0.0] - 2017-11-23
 
 ### Added
