@@ -26,7 +26,7 @@ $dca['palettes'][HeimrichHannot\Submissions\Creator\SubmissionCreator::MODULE_SU
     '{entity_legend},defaultArchive,formHybridEditable,formHybridAddEditableRequired,formHybridAddPermanentFields,formHybridAddDefaultValues;' .
     '{period_legend},limitSubmissionPeriod;' .
     '{relation_legend},addSubmissionRelation;' .
-    '{action_legend},addUpdateConditions,formHybridAllowIdAsGetParameter;' .
+    '{action_legend},addUpdateConditions,formHybridAllowIdAsGetParameter,disableSessionCheck,disableAuthorCheck;' .
     '{redirect_legend},formHybridSingleSubmission,formHybridResetAfterSubmission,formHybridAddFieldDependentRedirect,jumpTo,formHybridAddHashToAction,formHybridJumpToPreserveParams;' .
     '{email_legend},formHybridSubmissionNotification,formHybridConfirmationNotification;' .
     '{misc_legend},formHybridAsync,formHybridSuccessMessage,formHybridSkipScrollingToSuccessMessage,formHybridCustomSubmit,formHybridAddSubmitValues,setPageTitle,addClientsideValidation;' .

@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.0.1] - 2018-05-14
+
+### Added
+- disableSessionCheck,disableAuthorCheck to palette
+
 ## [3.0.0] - 2018-02-06
 
 ### Added
