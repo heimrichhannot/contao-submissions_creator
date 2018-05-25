@@ -49,8 +49,20 @@ $arrFields =
                     ],
                 'sql'              => "int(10) unsigned NOT NULL default '0'",
             ],
+	'privacyJumpTo' =>
+			[
+				'label'     => &$GLOBALS['TL_LANG']['tl_submission']['privacyJumpTo'],
+				'exclude'   => true,
+				'filter'    => true,
+				'inputType' => 'checkbox',
+				'eval'      => ['mandatory' => true, 'tl_class' => 'w50', 'doNotCopy' => true],
+				'sql'       => "char(1) NOT NULL default ''",
+			]
     ];
 
 $arrDca['fields'] = array_merge($arrDca['fields'], $arrFields);
+
+$arrDca['palettes']['default'] = str_replace('privacy,','privacy,privacyJumpTo,',$arrDca['palettes']['default']);
+
 
 \HeimrichHannot\Haste\Dca\General::addSessionIDFieldAndCallback('tl_submission');

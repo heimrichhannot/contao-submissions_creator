@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.1.0] - 2018-05-25
+
+### Added
+- selectable jumpTo page for privacy policy which is linked to by field `privacyJumpTo` 
+
 ## [3.0.1] - 2018-05-14
 
 ### Added

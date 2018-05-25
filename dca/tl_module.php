@@ -27,7 +27,7 @@ $dca['palettes'][HeimrichHannot\Submissions\Creator\SubmissionCreator::MODULE_SU
     '{period_legend},limitSubmissionPeriod;' .
     '{relation_legend},addSubmissionRelation;' .
     '{action_legend},addUpdateConditions,formHybridAllowIdAsGetParameter,disableSessionCheck,disableAuthorCheck;' .
-    '{redirect_legend},formHybridSingleSubmission,formHybridResetAfterSubmission,formHybridAddFieldDependentRedirect,jumpTo,formHybridAddHashToAction,formHybridJumpToPreserveParams;' .
+    '{redirect_legend},formHybridSingleSubmission,formHybridResetAfterSubmission,formHybridAddFieldDependentRedirect,jumpTo,jumpToPrivacy,formHybridAddHashToAction,formHybridJumpToPreserveParams;' .
     '{email_legend},formHybridSubmissionNotification,formHybridConfirmationNotification;' .
     '{misc_legend},formHybridAsync,formHybridSuccessMessage,formHybridSkipScrollingToSuccessMessage,formHybridCustomSubmit,formHybridAddSubmitValues,setPageTitle,addClientsideValidation;' .
     '{template_legend},formHybridTemplate,itemTemplate,customTpl;' .
@@ -79,6 +79,15 @@ $arrFields = [
         'inputType' => 'text',
         'eval'      => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
         'sql'       => "varchar(10) NOT NULL default ''"
+    ],
+  'jumpToPrivacy' => [
+        'label'                   => &$GLOBALS['TL_LANG']['tl_module']['jumpToPrivacy'],
+        'exclude'                 => true,
+        'inputType'               => 'pageTree',
+        'foreignKey'              => 'tl_page.title',
+        'eval'                    => ['fieldType'=>'radio'],
+        'sql'                     => "int(10) unsigned NOT NULL default '0'",
+        'relation'                => ['type'=>'hasOne', 'load'=>'eager']
     ]
 ];
 

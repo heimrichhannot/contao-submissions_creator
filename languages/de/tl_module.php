@@ -18,6 +18,7 @@ $arrLang['submissionRelation']    = ['Typ der Verknüpfung', 'Wählen den Typ de
 $arrLang['limitSubmissionPeriod'] = ['Einreichungszeitraum eingrenzen', 'Grenzen Sie den Zeitraum ein in dem Einsendungen eingereicht werden können.'];
 $arrLang['submissionStart']       = ['Einreichen ab', 'Einreichen von Einsendungen erst ab diesem Tag erlauben.'];
 $arrLang['submissionStop']        = ['Einreichen bis', 'Einreichen von Einsendungen bis zu diesem Tag erlauben.'];
+$arrLang['jumpToPrivacy']        = ['Weiterleitung zum Datenschutz', 'Wählen Sie hier eine Seite, auf der die Datenschutzangaben zu finden sind. Die Verlinkung wird am Feld `privacyJumpTo` im Formular ausgegeben. Dieses muss in den Feldern angewählt sein.'];
 
 /**
  * Legends

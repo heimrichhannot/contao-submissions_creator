@@ -82,4 +82,9 @@ class ModuleSubmissionReader extends ModuleReader
             StatusMessage::addError(sprintf($arrRelation['inactive_message'][0], $this->objRelation->{$arrRelation['inactive_message'][1]}), $this->id);
         }
     }
+
+    public function modifyDC(&$arrDca = null)
+    {
+        $arrDca['fields']['privacyJumpTo']['label'] = sprintf($GLOBALS['TL_LANG']['tl_submission']['privacyJumpTo'][0], Url::generateFrontendUrl($this->jumpToPrivacy));
+    }
 }
