@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.1.1] - 2018-05-25
+
+### Fixed
+- missed use statement in `ModuleSubmissionReader` for Url-class
+
 ## [3.1.0] - 2018-05-25
 
 ### Added

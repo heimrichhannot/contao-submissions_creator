@@ -12,6 +12,7 @@ namespace HeimrichHannot\Submissions\Creator;
 
 use HeimrichHannot\FrontendEdit\ModuleReader;
 use HeimrichHannot\StatusMessages\StatusMessage;
+use HeimrichHannot\Haste\Util\Url;
 
 class ModuleSubmissionReader extends ModuleReader
 {
