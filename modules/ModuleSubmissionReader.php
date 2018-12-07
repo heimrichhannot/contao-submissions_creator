@@ -86,6 +86,6 @@ class ModuleSubmissionReader extends ModuleReader
 
     public function modifyDC(&$arrDca = null)
     {
-        $arrDca['fields']['privacyJumpTo']['label'] = sprintf($GLOBALS['TL_LANG']['tl_submission']['privacyJumpTo'][0], Url::generateFrontendUrl($this->jumpToPrivacy));
+        $arrDca['fields']['privacyJumpTo']['label'][0] = sprintf($GLOBALS['TL_LANG']['tl_submission']['privacyJumpTo'][0], Url::generateFrontendUrl($this->jumpToPrivacy));
     }
 }

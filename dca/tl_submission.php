@@ -19,7 +19,7 @@ $arrDca['config']['onsubmit_callback'][] = ['HeimrichHannot\Submissions\Creator\
  */
 $arrFields =
     [
-        'news'  =>
+        'news'          =>
             [
                 'label'            => &$GLOBALS['TL_LANG']['tl_submission']['news'],
                 'inputType'        => 'select',
@@ -34,7 +34,7 @@ $arrFields =
                     ],
                 'sql'              => "int(10) unsigned NOT NULL default '0'",
             ],
-        'event' =>
+        'event'         =>
             [
                 'label'            => &$GLOBALS['TL_LANG']['tl_submission']['event'],
                 'inputType'        => 'select',
@@ -49,20 +49,20 @@ $arrFields =
                     ],
                 'sql'              => "int(10) unsigned NOT NULL default '0'",
             ],
-	'privacyJumpTo' =>
-			[
-				'label'     => &$GLOBALS['TL_LANG']['tl_submission']['privacyJumpTo'],
-				'exclude'   => true,
-				'filter'    => true,
-				'inputType' => 'checkbox',
-				'eval'      => ['mandatory' => true, 'tl_class' => 'w50', 'doNotCopy' => true],
-				'sql'       => "char(1) NOT NULL default ''",
-			]
+        'privacyJumpTo' =>
+            [
+                'label'     => &$GLOBALS['TL_LANG']['tl_submission']['privacyJumpTo'],
+                'exclude'   => true,
+                'filter'    => true,
+                'inputType' => 'checkbox',
+                'eval'      => ['mandatory' => true, 'tl_class' => 'w50', 'doNotCopy' => true, 'hideLabel' => true],
+                'sql'       => "char(1) NOT NULL default ''",
+            ]
     ];
 
 $arrDca['fields'] = array_merge($arrDca['fields'], $arrFields);
 
-$arrDca['palettes']['default'] = str_replace('privacy,','privacy,privacyJumpTo,',$arrDca['palettes']['default']);
+$arrDca['palettes']['default'] = str_replace('privacy,', 'privacy,privacyJumpTo,', $arrDca['palettes']['default']);
 
 
 \HeimrichHannot\Haste\Dca\General::addSessionIDFieldAndCallback('tl_submission');

@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.1.2] - 2018-12-07
+
+### Fixed
+- privacyJumpTo checkbox label issue
+
 ## [3.1.1] - 2018-05-25
 
 ### Fixed
