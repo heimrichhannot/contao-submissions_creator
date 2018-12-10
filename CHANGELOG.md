@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.0] - 2018-12-10
+
+### Added
+- support for salutation_submission notification token
+
 ## [3.1.2] - 2018-12-07
 
 ### Fixed

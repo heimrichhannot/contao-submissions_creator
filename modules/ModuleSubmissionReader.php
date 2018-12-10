@@ -16,6 +16,8 @@ use HeimrichHannot\Haste\Util\Url;
 
 class ModuleSubmissionReader extends ModuleReader
 {
+    protected $strFormClass       = 'HeimrichHannot\\Submissions\\Creator\\ReaderForm';
+
     /**
      * @var \Model
      */
