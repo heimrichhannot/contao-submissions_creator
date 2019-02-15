@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.1] - 2019-02-15
+
+### Fixed
+- sprinft `privacyJumpTo` only if it was not already replaced before in `ModuleSubmissionReader:modifyDC`
+
 ## [3.2.0] - 2018-12-10
 
 ### Added
