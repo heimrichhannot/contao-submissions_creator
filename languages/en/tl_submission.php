@@ -15,3 +15,4 @@ $arrLang = &$GLOBALS['TL_LANG']['tl_submission'];
  */
 $arrLang['news'] = ['News', 'Select a news from a relation for submission.'];
 $arrLang['news'] = ['Event', 'Select an event from a relation for submission.'];
+$arrLang['privacyJumpTo'] = ['I understand the <a href="%s" target="_blank">data protection statement</a> and consent to the storage of my data.'];
