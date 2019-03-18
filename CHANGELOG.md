@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.3.0] - 2019-03-18
+
+### Added
+- set field values by GET-parameter
+
 ## [3.2.2] - 2019-03-06
 
 ### Added

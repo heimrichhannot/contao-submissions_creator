@@ -23,7 +23,7 @@ $dca['palettes']['__selector__'][]                                              
 $dca['palettes']['__selector__'][]                                                               = 'limitSubmissionPeriod';
 $dca['palettes'][HeimrichHannot\Submissions\Creator\SubmissionCreator::MODULE_SUBMISSION_READER] =
     '{title_legend},name,headline,type;' .
-    '{entity_legend},defaultArchive,formHybridEditable,formHybridAddEditableRequired,formHybridAddPermanentFields,formHybridAddDefaultValues;' .
+    '{entity_legend},defaultArchive,formHybridEditable,formHybridAddEditableRequired,formHybridAddPermanentFields,formHybridAddDefaultValues,formHybridAddGetParameter;' .
     '{period_legend},limitSubmissionPeriod;' .
     '{relation_legend},addSubmissionRelation;' .
     '{action_legend},addUpdateConditions,formHybridAllowIdAsGetParameter,disableSessionCheck,disableAuthorCheck;' .
