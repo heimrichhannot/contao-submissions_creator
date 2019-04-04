@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.3.1] - 2019-04-04
+
+### Fixed
+- missing clr class for jumpToPrivacy in tl_module
+
 ## [3.3.0] - 2019-03-18
 
 ### Added
