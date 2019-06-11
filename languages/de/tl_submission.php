@@ -15,4 +15,4 @@ $arrLang = &$GLOBALS['TL_LANG']['tl_submission'];
  */
 $arrLang['news']  = ['Nachricht', 'Wählen Sie eine Nachricht als Relation für diese Einsendung aus.'];
 $arrLang['event'] = ['Veranstaltung', 'Wählen Sie eine Veranstaltung als Relation für diese Einsendung aus.'];
-$arrLang['privacyJumpTo'] = ['Ich kenne die <a href="%s" target="_blank">Datenschutzerklärung</a> und stimme der Speicherung meiner Daten zu.'];
+$arrLang['privacyJumpTo'] = ['Ich habe die <a href="%s" target="_blank">Datenschutzinformationen</a> zur Kenntnis genommen und stimme der Speicherung der eingegebenen Daten zu.'];

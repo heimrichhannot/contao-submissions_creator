@@ -13,4 +13,4 @@ $arrLang = &$GLOBALS['TL_LANG']['tl_submission'];
 /**
  * Fields
  */
-$arrLang['privacyJumpTo'] = ['Przeczytałem <a href="%s" target="_blank">Politykę prywatności </a> i zgadzam się na przechowywanie wprowadzanych danych.'];
+$arrLang['privacyJumpTo'] = ['Přečetl jsem si <a href="%s" target="_blank"> Zásady ochrany soukromí </a> a souhlasím s ukládáním zadaných údajů.'];

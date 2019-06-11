@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.4.0] - 2019-06-11
+
+### Changed
+- text for `tl_submission.privacyJumpTo`
+
 ## [3.3.1] - 2019-04-04
 
 ### Fixed
