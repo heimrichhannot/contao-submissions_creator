@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.4.2] - 2020-03-26
+- fixed a warning in contao 4.9
+
 ## [3.4.1] - 2019-09-30
 
 ### Changed

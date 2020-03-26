@@ -134,6 +134,7 @@ class Hooks
                 $arrDca['fields'] = array_merge($arrDca['fields'], $arrSpreadDca['fields']);
             }
 
+            \System::loadLanguageFile($strName);
             \System::loadLanguageFile(static::SUBMISSION_RELATION_SPREAD_DCA);
 
             // add language to TL_LANG palette
