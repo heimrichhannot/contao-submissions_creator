@@ -33,4 +33,5 @@ ClassLoader::addClasses(
         'HeimrichHannot\Submissions\Creator\Backend\SubmissionRelationSpreadBackend' => 'system/modules/submissions_creator/classes/backend/SubmissionRelationSpreadBackend.php',
         'HeimrichHannot\Submissions\Creator\Backend\Module'                          => 'system/modules/submissions_creator/classes/backend/Module.php',
         'HeimrichHannot\Submissions\Creator\Backend\SubmissionBackend'               => 'system/modules/submissions_creator/classes/backend/SubmissionBackend.php',
+        'HeimrichHannot\Submissions\Creator\Event\ModifyDCEvent'                     => 'system/modules/submissions_creator/classes/Event/ModifyDCEvent.php',
     ]);

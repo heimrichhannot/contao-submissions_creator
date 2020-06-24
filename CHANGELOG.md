@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.5.0] - 2020-06-24
+- added Hook to modifyDc of submission form
+
 ## [3.4.2] - 2020-03-26
 - fixed a warning in contao 4.9
 

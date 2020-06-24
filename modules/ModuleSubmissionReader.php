@@ -13,6 +13,7 @@ namespace HeimrichHannot\Submissions\Creator;
 use HeimrichHannot\FrontendEdit\ModuleReader;
 use HeimrichHannot\StatusMessages\StatusMessage;
 use HeimrichHannot\Haste\Util\Url;
+use HeimrichHannot\Submissions\Creator\Event\ModifyDCEvent;
 
 class ModuleSubmissionReader extends ModuleReader
 {
@@ -92,6 +93,18 @@ class ModuleSubmissionReader extends ModuleReader
         {
             $arrDca['fields']['privacyJumpTo']['label'][0] = sprintf($GLOBALS['TL_LANG']['tl_submission']['privacyJumpTo'][0], Url::generateFrontendUrl($this->jumpToPrivacy));
         }
+
+        $event = new ModifyDCEvent($arrDca, $this);
+        if (isset($GLOBALS['TL_HOOKS']['modifyDC']) && \is_array($GLOBALS['TL_HOOKS']['modifyDC']))
+        {
+            foreach ($GLOBALS['TL_HOOKS']['modifyDC'] as $callback)
+            {
+                $this->import($callback[0]);
+                $this->{$callback[0]}->{$callback[1]}($event);
+            }
+        }
+
+        $arrDca = $event->getDca();
     }
 }
 
