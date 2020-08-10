@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.5.1] - 2020-08-10
+- fixed str_replace warning in classes/Hook.php
+
 ## [3.5.0] - 2020-06-24
 - added Hook to modifyDc of submission form
 
