@@ -29,7 +29,7 @@ $dca['palettes'][HeimrichHannot\Submissions\Creator\SubmissionCreator::MODULE_SU
     '{action_legend},addUpdateConditions,formHybridAllowIdAsGetParameter,disableSessionCheck,disableAuthorCheck;' .
     '{redirect_legend},formHybridSingleSubmission,formHybridResetAfterSubmission,formHybridAddFieldDependentRedirect,jumpTo,jumpToPrivacy,formHybridAddHashToAction,formHybridJumpToPreserveParams;' .
     '{email_legend},formHybridSubmissionNotification,formHybridConfirmationNotification;' .
-    '{misc_legend},publishOnValid,formHybridAsync,formHybridSuccessMessage,formHybridSkipScrollingToSuccessMessage,formHybridCustomSubmit,formHybridAddSubmitValues,setPageTitle,addClientsideValidation;' .
+    '{misc_legend},formHybridAsync,formHybridSuccessMessage,formHybridSkipScrollingToSuccessMessage,formHybridCustomSubmit,formHybridAddSubmitValues,setPageTitle,addClientsideValidation;' .
     '{template_legend},formHybridTemplate,itemTemplate,customTpl;' .
     '{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 

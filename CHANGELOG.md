@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.7.0] - 2020-09-17
+- removed `publishOnValid` (wrong context)
+
 ## [3.6.0] - 2020-09-16
 - added `publishOnValid`
 
