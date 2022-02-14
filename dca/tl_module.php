@@ -55,7 +55,7 @@ $arrFields = [
         'exclude'   => true,
         'inputType' => 'select',
         'options'   => array_keys($GLOBALS['SUBMISSION_RELATIONS']),
-        'reference' => $GLOBALS['TL_LANG']['MOD'],
+        'reference' => &$GLOBALS['TL_LANG']['MOD'],
         'sql'       => "varchar(32) NOT NULL default ''",
         'eval'      => ['includeBlankOption' => true, 'submitOnChange' => true],
     ],
