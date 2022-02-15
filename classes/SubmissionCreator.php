@@ -149,7 +149,7 @@ class SubmissionCreator extends \Controller
         if (!empty($arrRelation)) {
             $objEvents = \CalendarEventsModel::findUpcomingByPids(deserialize($dc->objModule->cal_calendar, true), 0, ['order' => 'title']);
         } // back end mode without module & relation context, display only selected event for performance reasons
-        elseif ($dc->activeRecord->event && ($objEvents = \CalendarEventsModel::findByPk($dc->activeRecord->event)) !== null) {
+        elseif ($dc->activeRecord && $dc->activeRecord->event && ($objEvents = \CalendarEventsModel::findByPk($dc->activeRecord->event)) !== null) {
             $objEvents = new \Model\Collection([$objEvents], 'tl_calendar_events');
         } else {
             $objEventSubmission = SubmissionModel::findBy(['event > 0'], null);
@@ -218,7 +218,7 @@ class SubmissionCreator extends \Controller
         if (!empty($arrRelation)) {
             $objNews = \NewsModel::findPublishedByPids(deserialize($dc->objModule->news_archives, true), null, 0, 0, ['order' => 'headline']);
         } // back end mode without module & relation context, display only selected event for performance reasons
-        elseif ($dc->activeRecord->news && ($objNews = \NewsModel::findByPk($dc->activeRecord->news)) !== null) {
+        elseif ($dc->activeRecord && $dc->activeRecord->news && ($objNews = \NewsModel::findByPk($dc->activeRecord->news)) !== null) {
             $objNews = new \Model\Collection([$objNews], 'tl_news');
         } // display only events with submissions for backend filter
         else {
