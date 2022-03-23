@@ -42,7 +42,7 @@ class SubmissionCreator extends \Controller
      *
      * @return string The url to the relation submission page
      */
-    public function getRelationLink(\PageModel $objPage, \Model $objEntity, array $arrRelation)
+    public static function getRelationLink(\PageModel $objPage, \Model $objEntity, array $arrRelation)
     {
         $objPage = \PageModel::findWithDetails($objPage->id);
 

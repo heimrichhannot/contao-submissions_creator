@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.8.3] - 2022-03-23
+- Changed: made SubmissionCreator::getRelationLink() static (as it's only called static) (fix for php 8)
+
 ## [3.8.2] - 2022-02-14
 
 - Fixed: array index issues in php 8+
