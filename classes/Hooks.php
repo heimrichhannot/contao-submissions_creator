@@ -50,7 +50,7 @@ class Hooks
         }
 
         // check for submission id
-        if (!is_numeric($arrTokens['tl_submission'])) {
+        if (!is_numeric($arrTokens['tl_submission'] ?? null)) {
             return true;
         }
 
@@ -58,12 +58,12 @@ class Hooks
             return true;
         }
 
-        if (!is_array($GLOBALS['SUBMISSION_RELATIONS'])) {
+        if (!is_array($GLOBALS['SUBMISSION_RELATIONS'] ?? null)) {
             return true;
         }
 
         foreach ($GLOBALS['SUBMISSION_RELATIONS'] as $strKey => $arrRelation) {
-            if (!$arrRelation['table'] || !$arrRelation['submissionField']) {
+            if (empty($arrRelation['table']) || empty($arrRelation['submissionField'])) {
                 continue;
             }
 
