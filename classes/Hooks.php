@@ -138,7 +138,10 @@ class Hooks
             \System::loadLanguageFile(static::SUBMISSION_RELATION_SPREAD_DCA);
 
             // add language to TL_LANG palette
-            $GLOBALS['TL_LANG'][$strName] = array_merge(($GLOBALS['TL_LANG'][$strName]) ? $GLOBALS['TL_LANG'][$strName] : [], $GLOBALS['TL_LANG'][static::SUBMISSION_RELATION_SPREAD_DCA]);
+            $GLOBALS['TL_LANG'][$strName] = array_merge(
+                !empty($GLOBALS['TL_LANG'][$strName]) ? $GLOBALS['TL_LANG'][$strName] : [],
+                $GLOBALS['TL_LANG'][static::SUBMISSION_RELATION_SPREAD_DCA]
+            );
 
             foreach ($arrRelation['invokePalettes'] as $strPaletteName => $strSearch) {
                 if (!isset($arrDca['palettes'][$strPaletteName])) {
